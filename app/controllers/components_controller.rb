@@ -1,7 +1,5 @@
 class ComponentsController < ApplicationController
-  def show
-  end
-
-  def index
+  def new
+    @app = Application.find(params[:id])
   end
 end
