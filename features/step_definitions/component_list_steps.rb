@@ -28,4 +28,23 @@ Then("I should be present on the Create Component page of that app") do
   expect(page).to have_content("#{@app.name}")
 end
 
+Then("I should see a text input for component name") do
+  expect(page).to have_selector("#compName")
+end
+
+When("I fill in TestComp as the new component name") do
+    fill_in "compName", with: 'TestComp'
+end
+
+When("I click submit") do
+  find('#submit').click
+end
+
+Then("I should be present on the component list page of that app") do
+  expect(page.current_path).to eq "/compList/#{@app.id}"
+end
+
+Then("I should see TestComp on that page") do
+  expect(page).to have_content("TestComp")
+end
 
