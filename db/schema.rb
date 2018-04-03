@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180403013755) do
   create_table "components", force: :cascade do |t|
     t.string "name"
     t.string "category"
+    t.string "status", default: "New"
     t.text "description"
     t.integer "application_id"
     t.datetime "created_at", null: false
