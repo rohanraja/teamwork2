@@ -13,6 +13,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Category</th>
+            <th>Status</th>
             <th></th>
         <th></th>
       </tr>
@@ -23,6 +24,7 @@
             <td><%= link_to component.name, [@application, component] %></td>
             <td><%= component.description %></td>
             <td><%= component.category %></td>
+            <td><%= component.status %></td>
         <td><%= link_to 'Edit', [:edit, @application, component] %></td>
         <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
