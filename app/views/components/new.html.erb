@@ -1,9 +1,9 @@
 <div class="page-header">
   <h1>Create Component</h1>
-  <h2><%= @app.name %></h2>
+  <h2><%= @application.name %></h2>
 </div>
 
-<%= form_for(@component) do |f| %>
+<%= form_with(model: [@application, @component]) do |f| %>
 
   <div class="field">
     <%= f.label :name %><br />

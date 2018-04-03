@@ -4,7 +4,8 @@ end
 
 When("I visit the component list page of the application") do
   appid = @app.id
-  visit "/compList/#{appid}"
+  # visit "/compList/#{appid}"
+  visit "/applications/#{appid}/components"
 end
 
 Then("I should see those simple components") do
@@ -21,13 +22,6 @@ When("I click on Create Component button") do
   find('#createCompBtn').click
 end
 
-Then("I should be present on the Create Component page of that app") do
-  appid = @app.id
-  expect(page.current_path).to eq "/newComp/#{appid}"
-  expect(page).to have_content("Create Component")
-  expect(page).to have_content("#{@app.name}")
-end
-
 Then("I should see a text input for component name") do
   expect(page).to have_selector("#compName")
 end
@@ -41,7 +35,7 @@ When("I click submit") do
 end
 
 Then("I should be present on the component list page of that app") do
-  expect(page.current_path).to eq "/compList/#{@app.id}"
+  expect(page.current_path).to eq "/applications/#{@app.id}/components"
 end
 
 Then("I should see TestComp on that page") do

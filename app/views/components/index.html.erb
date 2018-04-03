@@ -1,4 +1,8 @@
 <div class="page-header">
-  <h1>Components#index</h1>
+  <h1> <%= @application.name %></h1>
 </div>
-<p>Find me in app/views/components/index.html.erb</p>
+<% @application.components.each do |comp| %>
+  <p> <%= comp.name %> <p>
+<% end %>
+
+<%= link_to "Create Component", [:new, @application, :component] , id: "createCompBtn"%>
