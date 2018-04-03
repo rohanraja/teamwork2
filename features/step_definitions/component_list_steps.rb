@@ -73,3 +73,12 @@ Then("I should see the description of the component") do
 end
 
 
+When("I fill in TestCategory as the new component category") do
+    fill_in :name => "component[category]", with: 'TestCategory'
+end
+
+Then("I should see TestCategory on that page") do
+  expect(page).to have_content("TestCategory")
+end
+
+
