@@ -13,11 +13,6 @@ Then("I should see those simple components") do
   expect(page).to have_content("Comp_2")
 end
 
-Then("I should see a create components button") do
-  # expect(page).to have_selector(:link_or_button, 'Create Component')
-  expect(page).to have_selector("#createCompBtn")
-end
-
 When("I click on Create Component button") do
   find("a", :text=>"New Component").click
 end
@@ -40,5 +35,19 @@ end
 
 Then("I should see TestComp on that page") do
   expect(page).to have_content("TestComp")
+end
+
+When("I click on the name of one of the components") do
+  find("a", :text=>"Comp_1").click
+end
+
+Then("I should be on the component viewer page") do
+  compId = Component.where(:name => "Comp_1").first.id
+  expect(page.current_path).to eq "/applications/#{@app.id}/components/#{compId}"
+end
+
+Then("I should see the name of the component") do
+  expect(page).to have_content("Comp_1")
+  expect(page).to_not have_content("Comp_2")
 end
 

@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# FactoryGirl.create(:application, :with_components, comps: ["Comp_1", "Comp_2"], name: "xLearn2")
+
+app = Application.create(name: "xLearn2")
+comps = app.components.create([
+  {name: "Job Manager"}, 
+  {name: "Model Trainer"}, 
+  {name: "Weights Manager"},
+  {name: "Components Loader"},
+  {name: "PyComponents Manager"}
+])

@@ -10,6 +10,7 @@ class ApplicationsController < ApplicationController
   # GET /applications/1
   # GET /applications/1.json
   def show
+    redirect_to [@application, :components]
   end
 
   # GET /applications/new
