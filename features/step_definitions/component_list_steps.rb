@@ -1,5 +1,6 @@
 Given("I have an application with few simple components") do
   @app = create(:application, :with_components, comps: ["Comp_1", "Comp_2"])
+  @app.components.where(:name => "Comp_1").first.update(:description => "Some good description of the first component")
 end
 
 When("I visit the component list page of the application") do
@@ -25,6 +26,15 @@ When("I fill in TestComp as the new component name") do
     fill_in :name => "component[name]", with: 'TestComp'
 end
 
+
+When("I fill in TestDesc as the new component description") do
+    fill_in :name => "component[description]", with: 'TestDesc'
+end
+
+Then("I should see TestDesc on that page") do
+  expect(page).to have_content("TestDesc")
+end
+
 When("I click submit") do
   find('input[name="commit"]').click
 end
@@ -41,6 +51,12 @@ When("I click on the name of one of the components") do
   find("a", :text=>"Comp_1").click
 end
 
+
+Then("I click on TestComp component") do
+  find("a", :text=>"TestComp").click
+end
+
+
 Then("I should be on the component viewer page") do
   compId = Component.where(:name => "Comp_1").first.id
   expect(page.current_path).to eq "/applications/#{@app.id}/components/#{compId}"
@@ -50,4 +66,10 @@ Then("I should see the name of the component") do
   expect(page).to have_content("Comp_1")
   expect(page).to_not have_content("Comp_2")
 end
+
+
+Then("I should see the description of the component") do
+  expect(page).to have_content("Some good description of the first component")
+end
+
 

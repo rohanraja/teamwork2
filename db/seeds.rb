@@ -10,7 +10,7 @@
 
 app = Application.create(name: "xLearn2")
 comps = app.components.create([
-  {name: "Job Manager"}, 
+  {name: "Job Manager", description: "Responsible for managing jobs"}, 
   {name: "Model Trainer"}, 
   {name: "Weights Manager"},
   {name: "Components Loader"},
