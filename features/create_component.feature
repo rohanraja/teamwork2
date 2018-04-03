@@ -10,7 +10,7 @@ Feature: Create new components in an application
     And I fill in TestComp as the new component name
     And I click submit
     Then I should be present on the component list page of that app
-    And I should see TestComp on that page
+    And I should see "TestComp" on that page
     And I click on TestComp component
 
   Scenario: Create component with description
@@ -22,8 +22,8 @@ Feature: Create new components in an application
     And I click submit
     Then I should be present on the component list page of that app
     And I click on TestComp component
-    And I should see TestComp on that page
-    And I should see TestDesc on that page
+    And I should see "TestComp" on that page
+    And I should see "TestDesc" on that page
 
   Scenario: Create component with category
     Given I have an application with few simple components
@@ -35,6 +35,6 @@ Feature: Create new components in an application
     And I click submit
     Then I should be present on the component list page of that app
     And I click on TestComp component
-    And I should see TestComp on that page
-    And I should see TestDesc on that page
-    And I should see TestCategory on that page
+    And I should see "TestComp" on that page
+    And I should see "TestDesc" on that page
+    And I should see "TestCategory" on that page

@@ -43,7 +43,7 @@ class ComponentsController < ApplicationController
   def update
     respond_to do |format|
       if @component.update(component_params)
-        format.html { redirect_to @component, notice: 'Component was successfully updated.' }
+        format.html { redirect_to [@application, :components], notice: 'Component was successfully updated.' }
         format.json { render :show, status: :ok, location: @component }
       else
         format.html { render :edit }

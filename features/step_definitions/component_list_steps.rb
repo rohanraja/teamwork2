@@ -22,19 +22,6 @@ Then("I should see a text input for component name") do
   expect(page).to have_selector("#compName")
 end
 
-When("I fill in TestComp as the new component name") do
-    fill_in :name => "component[name]", with: 'TestComp'
-end
-
-
-When("I fill in TestDesc as the new component description") do
-    fill_in :name => "component[description]", with: 'TestDesc'
-end
-
-Then("I should see TestDesc on that page") do
-  expect(page).to have_content("TestDesc")
-end
-
 When("I click submit") do
   find('input[name="commit"]').click
 end
@@ -43,17 +30,12 @@ Then("I should be present on the component list page of that app") do
   expect(page.current_path).to eq "/applications/#{@app.id}/components"
 end
 
-Then("I should see TestComp on that page") do
-  expect(page).to have_content("TestComp")
-end
-
 When("I click on the name of one of the components") do
   find("a", :text=>"Comp_1").click
 end
 
-
-Then("I click on TestComp component") do
-  find("a", :text=>"TestComp").click
+Then("I click on {word} component") do |w|
+  find("a", :text=>w).click
 end
 
 
@@ -73,12 +55,15 @@ Then("I should see the description of the component") do
 end
 
 
-When("I fill in TestCategory as the new component category") do
-    fill_in :name => "component[category]", with: 'TestCategory'
+When("I fill in {word} as the new component {word}") do |txt, fld|
+    fill_in :name => "component[#{fld}]", with: txt
 end
 
-Then("I should see TestCategory on that page") do
-  expect(page).to have_content("TestCategory")
+Then("I should see {word} on that page") do |s|
+  expect(page).to have_content(s)
 end
 
+Then("I should see {string} on that page") do |s|
+  expect(page).to have_content(s)
+end
 
