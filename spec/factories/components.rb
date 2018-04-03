@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :component do
-    sequence(:name) { |n| "Comp_#{n}"}
-    application
+    name "MyString"
+    application nil
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401205609) do
+ActiveRecord::Schema.define(version: 20180403013755) do
 
   create_table "applications", force: :cascade do |t|
     t.string "name"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20180401205609) do
 
   create_table "components", force: :cascade do |t|
     t.string "name"
+    t.integer "application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "application_id"
+    t.index ["application_id"], name: "index_components_on_application_id"
   end
 
 end

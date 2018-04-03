@@ -19,7 +19,7 @@ Then("I should see a create components button") do
 end
 
 When("I click on Create Component button") do
-  find('#createCompBtn').click
+  find("a", :text=>"New Component").click
 end
 
 Then("I should see a text input for component name") do
@@ -27,11 +27,11 @@ Then("I should see a text input for component name") do
 end
 
 When("I fill in TestComp as the new component name") do
-    fill_in "compName", with: 'TestComp'
+    fill_in :name => "component[name]", with: 'TestComp'
 end
 
 When("I click submit") do
-  find('#submit').click
+  find('input[name="commit"]').click
 end
 
 Then("I should be present on the component list page of that app") do
