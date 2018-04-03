@@ -7,15 +7,10 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show component</h1>
+  <h2><%= @component.application.name %> > <%= @component.name %></h2>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @component.name %></dd>
-
-  <dt>Application:</dt>
-  <dd><%= @component.application.name %></dd>
 
   <dt>Description:</dt>
   <dd><%= @component.description %></dd>

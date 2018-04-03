@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Component
   <% end %>
-  <h1>Listing components</h1>
+  <h1><%= @application.name %>'s Components</h1>
 </div>
 
 <div class="table-responsive">
@@ -11,7 +11,6 @@
     <thead>
       <tr>
             <th>Name</th>
-            <th>Application</th>
             <th></th>
         <th></th>
       </tr>
@@ -20,7 +19,6 @@
     <tbody>
       <%= content_tag_for(:tr, @components) do |component| %>
             <td><%= link_to component.name, [@application, component] %></td>
-            <td><%= component.application %></td>
         <td><%= link_to 'Edit', edit_component_path(component) %></td>
         <td><%= link_to 'Destroy', component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>

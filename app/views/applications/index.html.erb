@@ -13,14 +13,12 @@
             <th>Name</th>
             <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @applications) do |application| %>
-            <td><%= application.name %></td>
-            <td><%= link_to 'Show', application %></td>
+            <td><%= link_to application.name, application %></td>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>
         <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>

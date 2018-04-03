@@ -8,11 +8,16 @@
 
 # FactoryGirl.create(:application, :with_components, comps: ["Comp_1", "Comp_2"], name: "xLearn2")
 
-app = Application.create(name: "xLearn2")
+app = Application.create(name: "xLearn2-Backend")
 comps = app.components.create([
-  {name: "Job Manager", description: "Responsible for managing jobs"}, 
-  {name: "Model Trainer"}, 
+  {name: "Job Manager", description: "Responsible for managing jobs", category: "class"}, 
+  {name: "Model Trainer", description: "Trains deep learning model", category: "module" }, 
   {name: "Weights Manager"},
   {name: "Components Loader"},
   {name: "PyComponents Manager"}
+])
+
+app2 = Application.create(name: "xLearn2-Ui")
+comps2 = app2.components.create([
+  {name: "NavBar", description: "Has links to most common pages", category: "class"} 
 ])
