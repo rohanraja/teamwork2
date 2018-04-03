@@ -6,7 +6,7 @@ class ComponentsController < ApplicationController
 
   def create
 
-    @component = Component.new(params.require(:component).permit(:name, :application_id))
+    @component = @application.components.new(params.require(:component).permit(:name) )
     @component.save
     redirect_to [@application, :components]
   end
@@ -17,4 +17,5 @@ class ComponentsController < ApplicationController
   def set_application
     @application = Application.find(params[:application_id])
   end
+
 end
