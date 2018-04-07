@@ -4,6 +4,7 @@ Feature: Create new components in an application
   in order to build the system
 
   Scenario: Create simple component
+    Given I am a new, authenticated user
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
@@ -14,6 +15,7 @@ Feature: Create new components in an application
     And I click on TestComp component
 
   Scenario: Create component with description
+    Given I am a new, authenticated user
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
@@ -26,6 +28,7 @@ Feature: Create new components in an application
     And I should see "TestDesc" on that page
 
   Scenario: Create component with category
+    Given I am a new, authenticated user
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
@@ -40,6 +43,7 @@ Feature: Create new components in an application
     And I should see "TestCategory" on that page
 
   Scenario: Create component with initial status as new
+    Given I am a new, authenticated user
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
