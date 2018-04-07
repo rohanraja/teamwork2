@@ -7,7 +7,7 @@ Feature: Create new components in an application
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
-    And I fill in TestComp as the new component name
+    And I fill in "TestComp" as the component name
     And I click submit
     Then I should be present on the component list page of that app
     And I should see "TestComp" on that page
@@ -17,8 +17,8 @@ Feature: Create new components in an application
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
-    And I fill in TestComp as the new component name
-    And I fill in TestDesc as the new component description
+    And I fill in "TestComp" as the component name
+    And I fill in "TestDesc" as the component description
     And I click submit
     Then I should be present on the component list page of that app
     And I click on TestComp component
@@ -29,9 +29,9 @@ Feature: Create new components in an application
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
-    And I fill in TestComp as the new component name
-    And I fill in TestDesc as the new component description
-    And I fill in TestCategory as the new component category
+    And I fill in "TestComp" as the component name
+    And I fill in "TestDesc" as the component description
+    And I fill in "TestCategory" as the component category
     And I click submit
     Then I should be present on the component list page of that app
     And I click on TestComp component
@@ -43,7 +43,7 @@ Feature: Create new components in an application
     Given I have an application with few simple components
     When I visit the component list page of the application
     And I click on Create Component button
-    And I fill in TestComp as the new component name
+    And I fill in "TestComp" as the component name
     And I click submit
     And I click on TestComp component
     Then I should see "Status" on that page
