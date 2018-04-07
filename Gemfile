@@ -63,3 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'record_tag_helper'
 gem 'devise'
+
+gem 'webpacker', '~> 3.4'
+gem 'webpacker-react', "~> 0.3.2"
+

@@ -1,5 +1,16 @@
 {
   "name": "teamwork2",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.4",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "turbolinks": "^5.1.1",
+    "webpacker-react": "^0.3.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
