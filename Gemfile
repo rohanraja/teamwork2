@@ -47,7 +47,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'phantomjs'
   gem 'poltergeist'
-  gem "capybara-webkit"
+  # gem "capybara-webkit"
 
 end
 

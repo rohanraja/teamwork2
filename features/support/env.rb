@@ -46,15 +46,18 @@ end
 #     DatabaseCleaner.strategy = :truncation
 #   end
 #
-#   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
-#     DatabaseCleaner.strategy = :transaction
-#   end
+  # Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
+  #   DatabaseCleaner.strategy = :truncation
+  # end
 #
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-Cucumber::Rails::Database.javascript_strategy = :truncation
+# Cucumber::Rails::Database.javascript_strategy = :truncation
+
+Cucumber::Rails::Database.javascript_strategy = :transaction
+
 # require 'capybara/poltergeist'
 # Capybara.javascript_driver = :poltergeist
 # Capybara.javascript_driver = :webkit
@@ -73,6 +76,4 @@ module Cucumber
   end
 end
 
-Capybara.javascript_driver = :webkit
-Capybara.default_driver = :selenium
 
