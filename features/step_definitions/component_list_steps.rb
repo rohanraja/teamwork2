@@ -52,3 +52,7 @@ Then("I should see the description of the component") do
 end
 
 
+Given("I visit the component page of the first component of my application") do 
+  visit "/applications/#{@app.id}/components/#{@app.components.first.id}"
+end
+
