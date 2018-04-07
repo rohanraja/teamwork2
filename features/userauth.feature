@@ -31,3 +31,24 @@ Feature: User authentication and role management
     And I visit the application list page
     Then I should see "You need to sign in or sign up before continuing" on that page
     And I should be on the login page
+
+
+  Scenario: Password change for an existing user
+    Given I visit the users sign up page
+    When I fill in "testuser@teamwork.com" as the user email
+    And I fill in "testpassword" as the user password
+    And I fill in "testpassword" as the user password_confirmation
+    And I click "Sign Up" to submit
+    Then I should see "You have signed up successfully" on that page
+    And I click on link "Edit profile"
+    And I fill in "totallyNewpassword" as the user password
+    And I fill in "totallyNewpassword" as the user password_confirmation
+    And I fill in "testpassword" as the user current_password
+    And I click on button "Update"
+
+    And I am not signed in
+    And I visit the users sign in page
+    And I fill in "testuser@teamwork.com" as the user email
+    And I fill in "totallyNewpassword" as the user password
+    And I click "Log In" to submit
+    Then I should see "Signed in successfully" on that page

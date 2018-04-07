@@ -27,3 +27,12 @@ Then("I clear browser cookies") do
     raise "Don't know how to clear cookies. Weird driver?"
   end
 end
+
+
+Then("I click on link {string}") do |string|
+  click_link string
+end
+
+Then("I click on button {string}") do |string|
+  click_button string
+end
