@@ -4,12 +4,14 @@ Feature: Displaying list of components
   in order to understand its structure
 
   Scenario: App with two simple components
-    Given I have an application with few simple components
+    Given I am a new, authenticated user
+    And I have an application with few simple components
     When I visit the component list page of the application
     Then I should see those simple components
 
   Scenario: Status and Description visible on components list page
-    Given I have an application with few simple components
+    Given I am a new, authenticated user
+    And I have an application with few simple components
     When I visit the component list page of the application
     Then I should see those simple components
     And I should see Description on that page

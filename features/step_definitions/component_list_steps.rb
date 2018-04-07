@@ -22,9 +22,6 @@ Then("I should see a text input for component name") do
   expect(page).to have_selector("#compName")
 end
 
-When("I click submit") do
-  find('input[name="commit"]').click
-end
 
 Then("I should be present on the component list page of that app") do
   expect(page.current_path).to eq "/applications/#{@app.id}/components"
@@ -54,16 +51,4 @@ Then("I should see the description of the component") do
   expect(page).to have_content("Some good description of the first component")
 end
 
-
-When("I fill in {word} as the new component {word}") do |txt, fld|
-    fill_in :name => "component[#{fld}]", with: txt
-end
-
-Then("I should see {word} on that page") do |s|
-  expect(page).to have_content(s)
-end
-
-Then("I should see {string} on that page") do |s|
-  expect(page).to have_content(s)
-end
 
