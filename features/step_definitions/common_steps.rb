@@ -8,6 +8,9 @@ Then("I should see {word} on that page") do |s|
 end
 
 Then("I should see {string} on that page") do |s|
+  browser = Capybara.current_session.driver.browser
+  puts browser
+  puts Capybara.current_session.driver
   expect(page).to have_content(s)
 end
 
