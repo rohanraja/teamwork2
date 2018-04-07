@@ -1,9 +1,7 @@
-Given("I visit the users sign in page") do
-  visit "/users/sign_in"
+Given("I visit the users sign {word} page") do |w|
+  visit "/users/sign_#{w}"
 end
 
-Given("I click {string}") do |string|
-  if string == "Log In"
-    find('input[name="commit"]').click
-  end
+Given("I click {string} to submit") do |string|
+  find('input[name="commit"]').click
 end
