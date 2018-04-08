@@ -12,6 +12,10 @@ email = 'rohanraja9@gmail.com'
 password = 'secretpass'
 User.new(:email => email, :password => password, :password_confirmation => password).save!
 
+email2 = 'roraja@microsoft.com'
+password = 'secretpass'
+User.new(:email => email2, :password => password, :password_confirmation => password).save!
+
 app = Application.create(name: "xLearn2-Backend")
 comps = app.components.create([
   {name: "Job Manager", description: "Responsible for managing jobs", category: "class"}, 

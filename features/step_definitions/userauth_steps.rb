@@ -48,7 +48,7 @@ Given ("I am a new, authenticated user") do
 
 end
 
-Given ("There exists another user") do
+Given ("there exists another user") do
   email = 'seconduser@teamwork.com'
   password = 'secretpass'
   @user2 = User.new(:email => email, :password => password, :password_confirmation => password)
