@@ -11,7 +11,6 @@
     <thead>
       <tr>
             <th>Title</th>
-            <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -19,8 +18,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @testsuites) do |testsuite| %>
-            <td><%= testsuite.title %></td>
-            <td><%= link_to 'Show', testsuite %></td>
+            <td><%= link_to testsuite.title, testsuite %></td>
         <td><%= link_to 'Edit', edit_testsuite_path(testsuite) %></td>
         <td><%= link_to 'Destroy', testsuite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>

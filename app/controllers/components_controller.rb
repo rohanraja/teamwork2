@@ -29,6 +29,7 @@ class ComponentsController < ApplicationController
 
     respond_to do |format|
       if @component.save
+        @component.testsuites.create(:title => "Default testsuite for Component: #{@component.name}")
         format.html { redirect_to [@application, :components], notice: 'Component was successfully created.' }
         format.json { render :show, status: :created, location: @component }
       else

@@ -1,0 +1,34 @@
+<div class="page-header">
+  <%= link_to checklists_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_checklist_path(@checklist), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show checklist</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @checklist.title %></dd>
+
+</dl>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>Items</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= content_tag_for(:tr, @checklist.checklistitems) do |item| %>
+                <td><%= item.title %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
