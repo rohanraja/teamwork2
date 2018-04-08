@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :functionalities
   devise_for :users
   root to: "applications#index"
   resources :applications

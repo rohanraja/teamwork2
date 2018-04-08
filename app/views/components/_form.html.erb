@@ -35,4 +35,26 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+
+  <h3>Functionalities</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+      </tr>
+    </thead>
+    <tbody class='functionalities'>
+      <%= f.fields_for :functionalities do |builder| %>
+        <%= render 'functionality_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Functionality', f, :functionalities, class: 'btn btn-primary', data: { association_insertion_node: '.functionalities', association_insertion_method: :append } %>
+  </div>
 <% end %>

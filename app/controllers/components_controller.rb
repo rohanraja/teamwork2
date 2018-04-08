@@ -43,7 +43,7 @@ class ComponentsController < ApplicationController
   def update
     respond_to do |format|
       if @component.update(component_params)
-        format.html { redirect_to [@application, :components], notice: 'Component was successfully updated.' }
+        format.html { redirect_to [@application, @component], notice: 'Component was successfully updated.' }
         format.json { render :show, status: :ok, location: @component }
       else
         format.html { render :edit }
@@ -73,6 +73,6 @@ class ComponentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def component_params
-      params.require(:component).permit(:name, :description, :category)
+      params.require(:component).permit(:name, :description, :category, functionalities_attributes: Functionality.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

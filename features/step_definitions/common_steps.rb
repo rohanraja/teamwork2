@@ -48,3 +48,8 @@ end
 Then("I click on button {string}") do |string|
   click_button string
 end
+
+
+When("I fill in {string} to the dynamic list having class {string}") do |string, string2|
+  all(".#{string2} input").last.set(string)
+end

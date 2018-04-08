@@ -39,6 +39,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
@@ -63,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'record_tag_helper'
 gem 'devise'
+gem 'cocoon'
+
+gem 'jquery-rails'
