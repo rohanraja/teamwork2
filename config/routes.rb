@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :checklists
   resources :tasks
   resources :testcases
   resources :testsuites
