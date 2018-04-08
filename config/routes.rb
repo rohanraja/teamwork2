@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard/home'
+
   resources :checklistitems
   resources :checklists
   resources :tasks
@@ -12,4 +14,6 @@ Rails.application.routes.draw do
   resources :applications do
     resources :components
   end
+
+  get "dashboard" => "dashboard#home"
 end
