@@ -23,7 +23,9 @@ comps = app.components.create([
 
 app.components.first.functionalities.create(title: "It should manage jobs")
 
-app.components.first.testsuites.create(title: "Test Suite 1")
+ts = app.components.first.testsuites.create(title: "Test Suite 1")
+
+tc = ts.testcases.create(title: "New test case")
 
 app2 = Application.create(name: "xLearn2-Ui")
 comps2 = app2.components.create([
