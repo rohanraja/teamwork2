@@ -40,3 +40,25 @@ Feature: Component can have a test suite
     And I click on button "submit"
     And I visit the show page for that testsuite
     Then I should see "Newly added testcase" on that page
+
+  Scenario: The test suite show page should list its associated components
+    Given I am a new, authenticated user
+    And I have an application and a simple component named "Comp_1"
+    And that component has a test suite named "Sample Test Pack 1"
+    When I visit the show page for that testsuite
+    Then I should see "Comp_1" on that page
+
+  @javascript
+  Scenario: I should be able to create and add new testsuite from the component edit page
+    Given I am a new, authenticated user
+    And I have an application and a simple component named "Comp_1"
+    When I visit the edit page for that component
+    And I click on link "Add Testsuite"
+    And I fill in "TestSuite for Comp1" to the dynamic list having class "testsuites"
+    And I click on button "submit"
+    And I visit the show page for that component
+    Then I should see "Comp_1" on that page
+    And I should see "TestSuite for Comp1" on that page
+
+  Scenario: I should be able to link existing testsuite from the component edit page
+    Given I am a new, authenticated user

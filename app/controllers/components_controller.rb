@@ -73,6 +73,8 @@ class ComponentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def component_params
-      params.require(:component).permit(:name, :description, :category, functionalities_attributes: Functionality.attribute_names.map(&:to_sym).push(:_destroy))
+      params.require(:component).permit(:name, :description, :category, 
+                                        functionalities_attributes: Functionality.attribute_names.map(&:to_sym).push(:_destroy), 
+                                       testsuites_attributes: Testsuite.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

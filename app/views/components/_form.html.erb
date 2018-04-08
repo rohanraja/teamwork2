@@ -42,7 +42,7 @@
     <thead>
       <tr>
         <th></th>
-        <th>Task Name</th>
+        <th>Title</th>
       </tr>
     </thead>
     <tbody class='functionalities'>
@@ -56,5 +56,26 @@
   <div class="form-actions">
     <%= f.button :submit %>
     <%= link_to_add_association 'Add Functionality', f, :functionalities, class: 'btn btn-primary', data: { association_insertion_node: '.functionalities', association_insertion_method: :append } %>
+  </div>
+
+  <h3>TestSuites</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody class='testsuites'>
+      <%= f.fields_for :testsuites do |builder| %>
+        <%= render 'testsuite_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= link_to_add_association 'Add Testsuite', f, :testsuites, class: 'btn btn-primary', data: { association_insertion_node: '.testsuites', association_insertion_method: :append } %>
   </div>
 <% end %>

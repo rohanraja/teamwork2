@@ -8,6 +8,10 @@ When("I visit the show page for that component") do
   visit "/applications/#{@component.application.id}/components/#{@component.id}"
 end
 
+When("I visit the edit page for that component") do
+  visit "/applications/#{@component.application.id}/components/#{@component.id}/edit"
+end
+
 When("I click submit") do
   find('input[name="commit"]').click
 end
