@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :testcases
+  resources :testsuites
   resources :functionalities
   devise_for :users
   root to: "applications#index"

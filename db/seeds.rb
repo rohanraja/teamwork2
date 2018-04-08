@@ -23,6 +23,10 @@ comps = app.components.create([
 
 app.components.first.functionalities.create(title: "It should manage jobs")
 
+ts = app.components.first.testsuites.create(title: "Test Suite 1")
+
+tc = ts.testcases.create(title: "New test case")
+
 app2 = Application.create(name: "xLearn2-Ui")
 comps2 = app2.components.create([
   {name: "NavBar", description: "Has links to most common pages", category: "class"} 

@@ -1,3 +1,16 @@
+Given("I have an application and a simple component named {string}") do |compName|
+  @app = create(:application, :with_components, comps: [compName])
+  @app.components.where(:name => "Comp_1").first.update(:description => "Some good description of the first component")
+  @component = @app.components.first
+end
+
+When("I visit the show page for that component") do
+  visit "/applications/#{@component.application.id}/components/#{@component.id}"
+end
+
+When("I visit the edit page for that component") do
+  visit "/applications/#{@component.application.id}/components/#{@component.id}/edit"
+end
 
 When("I click submit") do
   find('input[name="commit"]').click
@@ -53,3 +66,5 @@ end
 When("I fill in {string} to the dynamic list having class {string}") do |string, string2|
   all(".#{string2} input").last.set(string)
 end
+
+

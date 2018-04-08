@@ -1,0 +1,49 @@
+<%= form_for(@testsuite, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @testsuite.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@testsuite.errors.count, "error") %> prohibited this testsuite from being saved:</h4>
+
+      <ul>
+      <% @testsuite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+
+
+  <h3>Testcases</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+      </tr>
+    </thead>
+    <tbody class='testcases'>
+      <%= f.fields_for :testcases do |builder| %>
+        <%= render 'testcase_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Testcase', f, :testcases, class: 'btn btn-primary', data: { association_insertion_node: '.testcases', association_insertion_method: :append } %>
+  </div>
+<% end %>
