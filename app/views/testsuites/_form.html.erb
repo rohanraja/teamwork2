@@ -23,4 +23,27 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+
+
+  <h3>Testcases</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+      </tr>
+    </thead>
+    <tbody class='testcases'>
+      <%= f.fields_for :testcases do |builder| %>
+        <%= render 'testcase_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Testcase', f, :testcases, class: 'btn btn-primary', data: { association_insertion_node: '.testcases', association_insertion_method: :append } %>
+  </div>
 <% end %>

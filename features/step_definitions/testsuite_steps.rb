@@ -15,3 +15,7 @@ end
 When("I visit the show page for that testsuite") do
   visit "/testsuites/#{@testsuite.id}"
 end
+
+When("I visit the edit page for that testsuite") do
+  visit "/testsuites/#{@testsuite.id}/edit"
+end

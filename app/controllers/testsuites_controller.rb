@@ -69,6 +69,6 @@ class TestsuitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def testsuite_params
-      params.require(:testsuite).permit(:title)
+      params.require(:testsuite).permit(:title, testcases_attributes: Testcase.attribute_names.map(&:to_sym).push(:_destroy) )
     end
 end
