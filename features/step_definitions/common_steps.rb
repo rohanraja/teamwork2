@@ -68,3 +68,7 @@ When("I fill in {string} to the dynamic list having class {string}") do |string,
 end
 
 
+Given("I visit the list of {word} page") do |word|
+  visit "/#{word}"
+end
+
