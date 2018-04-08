@@ -25,7 +25,11 @@
       <%= content_tag_for(:tr, @tasks) do |task| %>
             <td><%= link_to task.title, task %></td>
             <td><%= task.description %></td>
-            <td><%= task.user.email %></td>
+            <% if task.user != nil %>
+              <td><%= task.user.email %></td>
+            <% else %>
+              <td> </td>
+            <% end %>
             <td><%= task.priority %></td>
             <td><%= task.status %></td>
             <td><%= task.category %></td>
