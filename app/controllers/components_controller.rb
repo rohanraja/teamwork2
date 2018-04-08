@@ -75,6 +75,7 @@ class ComponentsController < ApplicationController
     def component_params
       params.require(:component).permit(:name, :description, :category, 
                                         functionalities_attributes: Functionality.attribute_names.map(&:to_sym).push(:_destroy), 
-                                       testsuites_attributes: Testsuite.attribute_names.map(&:to_sym).push(:_destroy))
+                                       testsuites_attributes: Testsuite.attribute_names.map(&:to_sym).push(:_destroy),
+                                       tasks_attributes: Task.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

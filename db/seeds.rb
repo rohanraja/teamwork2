@@ -10,7 +10,12 @@
 
 email = 'rohanraja9@gmail.com'
 password = 'secretpass'
-User.new(:email => email, :password => password, :password_confirmation => password).save!
+user1 = User.new(:email => email, :password => password, :password_confirmation => password)
+user1.save!
+
+email2 = 'roraja@microsoft.com'
+password = 'secretpass'
+User.new(:email => email2, :password => password, :password_confirmation => password).save!
 
 app = Application.create(name: "xLearn2-Backend")
 comps = app.components.create([
@@ -22,6 +27,8 @@ comps = app.components.create([
 ])
 
 app.components.first.functionalities.create(title: "It should manage jobs")
+
+task = app.components.first.tasks.create(title: "Write acceptance test cases", user_id: user1.id)
 
 ts = app.components.first.testsuites.create(title: "Test Suite 1")
 

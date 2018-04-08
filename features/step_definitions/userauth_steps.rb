@@ -38,7 +38,8 @@ end
 Given ("I am a new, authenticated user") do
   email = 'testing2@man.net2'
   password = 'secretpass2'
-  User.new(:email => email, :password => password, :password_confirmation => password).save!
+  @user = User.new(:email => email, :password => password, :password_confirmation => password)
+  @user.save!
 
   visit '/users/sign_in'
   fill_in "user_email", :with => email
@@ -47,3 +48,9 @@ Given ("I am a new, authenticated user") do
 
 end
 
+Given ("there exists another user") do
+  email = 'seconduser@teamwork.com'
+  password = 'secretpass'
+  @user2 = User.new(:email => email, :password => password, :password_confirmation => password)
+  @user2.save!
+end
