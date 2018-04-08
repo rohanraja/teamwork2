@@ -44,7 +44,7 @@
 
         <tbody>
           <%= content_tag_for(:tr, @testsuite.components) do |component| %>
-                <td><%= component.name %></td>
+                <td><%= link_to component.name, [component.application, component] %></td>
           <% end %>
         </tbody>
       </table>
