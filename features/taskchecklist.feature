@@ -19,3 +19,17 @@ Feature: Developers can keep verify progress of tasks using Checklists
     When I visit the show page for that checklist
     Then I should see "Sample Checklist" on that page
     And I should see "To be completed" on that page
+
+
+  @javascript
+  Scenario: Editing all items from its checklist edit page
+    Given I am a new, authenticated user
+    And I have a checklist named "Sample Checklist"
+    And I that checklist has item titled "To be completed"
+    When I visit the edit page for that checklist
+    And I click on link "Add Item"
+    And I fill in "Newly added check item" to the dynamic list having class "checklistitems"
+    And I click on button "submit"
+    And I visit the show page for that checklist
+    Then I should see "Newly added check item" on that page
+    And I should see "To be completed" on that page

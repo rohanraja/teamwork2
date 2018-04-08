@@ -23,4 +23,26 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+
+  <h3>Items</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody class='checklistitems'>
+      <%= f.fields_for :checklistitems do |builder| %>
+        <%= render 'checklistitem_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Item', f, :checklistitems, class: 'btn btn-primary', data: { association_insertion_node: '.checklistitems', association_insertion_method: :append } %>
+  </div>
 <% end %>

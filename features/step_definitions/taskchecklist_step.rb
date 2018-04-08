@@ -14,3 +14,7 @@ end
 When("I visit the show page for that checklist") do
   visit "/checklists/#{@checklist.id}"
 end
+
+When("I visit the edit page for that checklist") do
+  visit "/checklists/#{@checklist.id}/edit"
+end

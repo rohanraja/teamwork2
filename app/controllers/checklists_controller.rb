@@ -69,6 +69,8 @@ class ChecklistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checklist_params
-      params.require(:checklist).permit(:title)
+      params.require(:checklist).permit(:title,
+                                       checklistitems_attributes: Checklistitem.attribute_names.map(&:to_sym).push(:_destroy)
+                                       )
     end
 end
