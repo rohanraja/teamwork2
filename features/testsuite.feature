@@ -18,3 +18,13 @@ Feature: Component can have a test suite
     When I visit the show page for that testsuite
     Then I should see "TestSuite 1" on that page
     And I should see "TestCase 1" on that page
+
+  Scenario: A test case of a test suite of a component should appear on the component page
+    Given I am a new, authenticated user
+    And I have an application and a simple component named "Comp_1"
+    And that component has a test suite named "Sample Test Pack 1"
+    And that testsuite has a testcase titled "Sample TestCase 1"
+    When I visit the show page for that component
+    Then I should see "Comp_1" on that page
+    And I should see "Sample Test Pack 1" on that page
+    And I should see "Sample TestCase 1" on that page

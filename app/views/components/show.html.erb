@@ -51,7 +51,12 @@
 
         <tbody>
           <%= content_tag_for(:tr, @component.testsuites) do |testsuite| %>
-                <td><%= testsuite.title %></td>
+            <td><%= link_to testsuite.title, [testsuite] %> \/ </td>
+
+            <%= content_tag_for(:tr, testsuite.testcases) do |testcase| %>
+              <td style='padding-left: 30px'><%= link_to testcase.title, [testcase] %> </td>
+            <% end %>
+
           <% end %>
         </tbody>
       </table>
