@@ -11,3 +11,7 @@ Then("I should see the other user email on that page") do
   expect(page).to have_content("#{@user2.email}")
 end
 
+
+Given("that component has a task named {string}") do |string|
+  @task = @component.tasks.create(:title => string, :user_id => @user.id)
+end

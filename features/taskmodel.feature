@@ -24,4 +24,13 @@ Feature: Developers can keep track of progress using Tasks
     And I should see the other user email on that page
 
   Scenario: Component page should list its tasks
+    Given I am a new, authenticated user
+    And I have an application and a simple component named "Comp_1"
+    And that component has a task named "Sample Task 1"
+    And that component has a task named "Yet another Task"
+    When I visit the show page for that component
+    Then I should see "Comp_1" on that page
+    Then I should see "Sample Task 1" on that page
+    Then I should see "Yet another Task" on that page
+
   Scenario: Task page should list its associated components
