@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_testsuite_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Testsuite
+  <% end %>
+  <h1>Listing testsuites</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Title</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @testsuites) do |testsuite| %>
+            <td><%= testsuite.title %></td>
+            <td><%= link_to 'Show', testsuite %></td>
+        <td><%= link_to 'Edit', edit_testsuite_path(testsuite) %></td>
+        <td><%= link_to 'Destroy', testsuite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
