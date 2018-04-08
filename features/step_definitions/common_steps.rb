@@ -72,3 +72,7 @@ Given("I visit the list of {word} page") do |word|
   visit "/#{word}"
 end
 
+Given("I visit the new {word} page") do |word|
+  visit "/#{word}/new"
+end
+
