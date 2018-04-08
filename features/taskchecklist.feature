@@ -20,6 +20,15 @@ Feature: Developers can keep verify progress of tasks using Checklists
     Then I should see "Sample Checklist" on that page
     And I should see "To be completed" on that page
 
+  Scenario: A checklist should have its items listed on the task page
+    Given I am a new, authenticated user
+    And I have a task titled "Test Task with checklist"
+    And that task has a checklist named "Sample Checklist"
+    And I that checklist has item titled "To be completed"
+    When I visit the show page for that task
+    Then I should see "Test Task with checklist" on that page
+    And I should see "Sample Checklist" on that page
+    And I should see "To be completed" on that page
 
   @javascript
   Scenario: Editing all items from its checklist edit page
