@@ -11,9 +11,21 @@ Then("I should see {string} on that page") do |s|
   expect(page).to have_content(s)
 end
 
+
+Then("I should not see {string} on that page") do |string|
+  expect(page).to_not have_content(string)
+end
+
+
 Given("I fill in {string} as the {word} {word}") do |string, mod, attr|
     fill_in :name => "#{mod}[#{attr}]", with: string
 end
+
+
+When("I fill in {string} to element {word}") do |string, w|
+    fill_in w, with: string
+end
+
 
 Then("I clear browser cookies") do
   browser = Capybara.current_session.driver.browser
@@ -35,4 +47,9 @@ end
 
 Then("I click on button {string}") do |string|
   click_button string
+end
+
+
+When("I fill in {string} to the dynamic list having class {string}") do |string, string2|
+  all(".#{string2} input").last.set(string)
 end

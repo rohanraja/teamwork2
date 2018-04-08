@@ -8,6 +8,10 @@
 
 # FactoryGirl.create(:application, :with_components, comps: ["Comp_1", "Comp_2"], name: "xLearn2")
 
+email = 'rohanraja9@gmail.com'
+password = 'secretpass'
+User.new(:email => email, :password => password, :password_confirmation => password).save!
+
 app = Application.create(name: "xLearn2-Backend")
 comps = app.components.create([
   {name: "Job Manager", description: "Responsible for managing jobs", category: "class"}, 
@@ -16,6 +20,8 @@ comps = app.components.create([
   {name: "Components Loader"},
   {name: "PyComponents Manager"}
 ])
+
+app.components.first.functionalities.create(title: "It should manage jobs")
 
 app2 = Application.create(name: "xLearn2-Ui")
 comps2 = app2.components.create([
