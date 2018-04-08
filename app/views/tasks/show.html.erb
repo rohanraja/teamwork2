@@ -41,7 +41,7 @@
 
         <tbody>
           <%= content_tag_for(:tr, @task.checklists) do |checklist| %>
-            <td><%= link_to checklist.title, [checklist] %> \/ </td>
+            <td><%= link_to checklist.title, [checklist] %>  (<%= link_to "edit", [:edit, checklist] %>) </td>
 
 
           <% end %>
