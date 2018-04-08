@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408183617) do
+ActiveRecord::Schema.define(version: 20180408190034) do
 
   create_table "applications", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "checklistitems", force: :cascade do |t|
+    t.string "title"
+    t.integer "checklist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checklist_id"], name: "index_checklistitems_on_checklist_id"
   end
 
   create_table "checklists", force: :cascade do |t|
