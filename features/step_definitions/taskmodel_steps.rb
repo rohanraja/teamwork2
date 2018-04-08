@@ -15,3 +15,7 @@ end
 Given("that component has a task named {string}") do |string|
   @task = @component.tasks.create(:title => string, :user_id => @user.id)
 end
+
+When("I visit the show page for that task") do
+  visit "/tasks/#{@task.id}"
+end

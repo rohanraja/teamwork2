@@ -33,7 +33,7 @@
 
         <tbody>
           <%= content_tag_for(:tr, @component.tasks) do |task| %>
-                <td><%= task.title %></td>
+                <td><%= link_to task.title, task %></td>
           <% end %>
         </tbody>
       </table>

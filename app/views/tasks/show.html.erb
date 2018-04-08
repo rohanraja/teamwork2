@@ -30,3 +30,19 @@
   <dd><%= @task.category %></dd>
 
 </dl>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+                <th>Associated Components</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= content_tag_for(:tr, @task.components) do |component| %>
+                <td><%= link_to component.name, [component.application, component] %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
