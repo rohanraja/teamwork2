@@ -39,3 +39,17 @@ Feature: Developers can keep track of progress using Tasks
     And that component has a task named "Sample Task 1"
     When I visit the show page for that task
     Then I should see "Comp_1" on that page
+
+  @javascript
+  Scenario: I should be able to create and add new tasks from the component edit page
+    Given I am a new, authenticated user
+    And I have an application and a simple component named "Comp_1"
+    When I visit the edit page for that component
+    And I click on link "Add Task"
+    And I fill in "Task for Comp1" to the dynamic list having class "tasks"
+    And I click on button "submit"
+    And I visit the show page for that component
+    Then I should see "Comp_1" on that page
+    And I should see "Task for Comp1" on that page
+
+  Scenario: I should be able to link existing task from the component edit page

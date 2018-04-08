@@ -7,4 +7,6 @@ class Component < ApplicationRecord
   has_and_belongs_to_many :testsuites
   accepts_nested_attributes_for :testsuites, 
                                 allow_destroy: true
+  accepts_nested_attributes_for :tasks, 
+                                allow_destroy: true
 end

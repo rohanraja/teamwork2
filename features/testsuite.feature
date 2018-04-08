@@ -61,4 +61,3 @@ Feature: Component can have a test suite
     And I should see "TestSuite for Comp1" on that page
 
   Scenario: I should be able to link existing testsuite from the component edit page
-    Given I am a new, authenticated user
