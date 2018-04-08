@@ -29,6 +29,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        @task.checklists.create(:title => "Default checklist for Task having title: #{@task.title}")
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else

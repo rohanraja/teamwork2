@@ -30,6 +30,15 @@ Feature: Developers can keep verify progress of tasks using Checklists
     And I should see "Sample Checklist" on that page
     And I should see "To be completed" on that page
 
+  Scenario: A task should have a default checklist autocreated
+    Given I am a new, authenticated user
+    When I visit the new tasks page
+    And I fill in "Test_Task" as the task title
+    And I click submit
+    And I visit the list of tasks page
+    And I click on link "Test_Task"
+    Then I should see "Default checklist" on that page
+
   @javascript
   Scenario: Editing all items from its checklist edit page
     Given I am a new, authenticated user
