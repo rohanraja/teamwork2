@@ -71,7 +71,7 @@
 
         <tbody>
           <%= content_tag_for(:tr, @component.testsuites) do |testsuite| %>
-            <td><%= link_to testsuite.title, [testsuite] %> (<%= link_to "edit", [:edit, testsuite] %>)</td>
+            <td><%= link_to testsuite.title, [:edit, testsuite] %></td>
 
             <%= content_tag_for(:tr, testsuite.testcases) do |testcase| %>
               <td style='padding-left: 30px'><%= link_to testcase.title, [testcase] %> </td>
