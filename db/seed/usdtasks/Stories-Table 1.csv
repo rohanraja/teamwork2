@@ -1,0 +1,14 @@
+Sno,Component,Description,TestCase Design,TestAuto Impl,Coding,Total Days,Priority,Queue
+10,Logging Module,Design and implement a Logging system and protocol which can enable getting deeper insights while debugging through easier browsing of logs,0,0,1,1,P2,Q0
+9,Window Navigation Rules and BDC Module,Investigate and design functional components for Window Navigation Rule Routing Management  and BDC firing,2,3,4,9,P0/P2,Q0
+2,USD/CRM Operations Module,"Design and implement a component which is responsible for handling all USD based operations like Win Nav Rule resolution, firing UII events, executing UII actions, updating USD Context, Getting CRM configuration values.",1,1,4,6,P0,Q0
+6,Web Browser Module,"Design and implement a BrowserAdapter interface which can be used publically by users to implement custom browsers (like Chrome, Edge) and can be consumed in CRMPage hosted control",2,2,3,7,P0,Q0
+3,Script Injection Module,Design and implement a component which will contain all the CRM Script Injection logic and management,2,2,2,6,P0,Q0
+13,UII Action Processor,Create a component which should connect UII action request to the concerned functionality,1,1,3,5,P1,Q0
+11,Hosted Control,Create a USD hosted control which would have the new CRM Page controller functionality,0,0,2,2,P0,Q0
+1,Automated Acceptance Tests,Write Acceptance tests for the CRMPage hosted control that covers all functionalities of this hosted control. All these tests should be passed by both current implementation and refactored implementation before deployment,4,5,0,9,P0,Q1
+8,IE Recovery Module,Design and implement a component to manage auto recovery of IE instances,2,2,2,6,P1,Q2
+7,Broweser Pooling Manager,Design and implement a component to manage pooling of IE instances,3,3,3,9,P2,Q2
+4,CRM Actions Module,Design and implement a component to handle those simple CRMPage public actions that uses RunXRMCommand internally,2,3,2,7,P1,Q2
+12,USD CRM Configuration,Add this new CRMPage control enable option in the CRM configuration,0,0,2,2,P0,Q3
+5,BrowserAdapter API Demo,Create a simple public demo illustrating how the public API of BrowserAdapter can be used to implement a custom browser like Chrome CEF in USD,2,2,2,6,P3,Q4
