@@ -13,6 +13,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>User</th>
+            <th>Estimated Cost</th>
             <th>Priority</th>
             <th>Status</th>
             <th>Category</th>
@@ -30,6 +31,7 @@
             <% else %>
               <td> </td>
             <% end %>
+            <td><%= task.estimated_cost %></td>
             <td><%= task.priority %></td>
             <td><%= task.status %></td>
             <td><%= task.category %></td>

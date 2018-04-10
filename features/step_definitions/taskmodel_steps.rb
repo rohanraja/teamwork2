@@ -15,6 +15,10 @@ Given("I have a task titled {string}") do |string|
   @task = Task.create(:title => string, :user_id => @user.id)
 end
 
+Given("I have a task titled {string} with cost {int} days") do |string, int|
+  @task = Task.create(:title => string, :user_id => @user.id, :estimated_cost => int)
+end
+
 Given("that component has a task named {string}") do |string|
   @task = @component.tasks.create(:title => string, :user_id => @user.id)
 end
