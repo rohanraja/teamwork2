@@ -67,6 +67,11 @@ When("I fill in {string} to the dynamic list having class {string}") do |string,
   all(".#{string2} input").last.set(string)
 end
 
+When("I fill in {string} to the dynamic list having class {string} which is {int} places from last") do |string, string2, int|
+  inpList = all(".#{string2} input")
+  inpList[-1*int].set(string)
+end
+
 
 Given("I visit the list of {word} page") do |word|
   visit "/#{word}"

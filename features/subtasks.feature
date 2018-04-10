@@ -17,7 +17,7 @@ Feature: SubTasks of tasks and further
     And I have a task titled "Main Task 1"
     When I visit the edit page for that task
     And I click on link "Add Subtask"
-    And I fill in "New Subtask 1" to the dynamic list having class "subtasks"
+    And I fill in "New Subtask 1" to the dynamic list having class "subtasks" which is 3 places from last
     And I click on button "submit"
     And I visit the show page for that task
     Then I should see "Main Task 1" on that page
