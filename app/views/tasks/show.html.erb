@@ -60,12 +60,16 @@
         <thead>
           <tr>
                 <th>Sub Tasks</th>
+                <th>Description</th>
+                <th>Cost</th>
           </tr>
         </thead>
 
         <tbody>
           <%= content_tag_for(:tr, @task.subtasks) do |subtask| %>
                 <td><%= link_to subtask.title, [subtask] %></td>
+                <td><%= subtask.description %></td>
+                <td><%= subtask.estimated_cost %></td>
           <% end %>
         </tbody>
       </table>

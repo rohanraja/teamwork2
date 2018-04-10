@@ -59,4 +59,30 @@
       <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
+
+
+  <h3>Subtasks</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Estimated Cost (in days)</th>
+      </tr>
+    </thead>
+    <tbody class='subtasks'>
+      <%= f.fields_for :subtasks do |builder| %>
+        <%= render 'subtask_fields', f: builder %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Subtask', f, :subtasks, class: 'btn btn-primary', data: { association_insertion_node: '.subtasks', association_insertion_method: :append } %>
+  </div>
+
 <% end %>
