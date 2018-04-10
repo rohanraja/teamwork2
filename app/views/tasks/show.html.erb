@@ -32,6 +32,13 @@
   <dt>Category:</dt>
   <dd><%= @task.category %></dd>
 
+  <% if @task.parent_task != nil %>
+  <dt>Parent Task:</dt>
+  <dd><%= link_to @task.parent_task.title, @task.parent_task %></dd>
+<% else %>
+  <dd></dd>
+  <% end %>
+
 </dl>
 
     <div class="table-responsive">

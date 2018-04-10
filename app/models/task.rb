@@ -16,4 +16,17 @@ class Task < ApplicationRecord
       self.checklists.create(:title => "Default checklist for Task having title: #{self.title}")
     end
   end
+  def parent_task
+    parTsk = nil
+    Task.all.each do |tsk|
+      tsk.subtasks.each do |subtsk|
+        if subtsk.id == self.id
+            parTsk = tsk
+        end
+      end
+
+    end
+    parTsk
+
+  end
 end
