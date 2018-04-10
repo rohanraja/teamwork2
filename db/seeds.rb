@@ -30,6 +30,8 @@ app.components.first.functionalities.create(title: "It should manage jobs")
 
 task = app.components.first.tasks.create(title: "Write acceptance test cases", user_id: user1.id)
 
+task.subtasks.create(:title => "Sample Sub Task 1")
+
 clist = task.checklists.create(title: "Sample checklist")
 
 clistitem = clist.checklistitems.create(:title => "Should be tested like hell")
