@@ -27,9 +27,17 @@ def importUSDTasks
     taskTitle = row["Description"]
     componentName = row["Component"]
     totalCost = row["Total Days"]
+    testDesCost = row["TestCase Design"]
+    testImplCost = row["TestAuto Impl"]
+    implCost = row["Coding"]
+    prio = row["Priority"][1].to_i
 
     comp = usdapp.components.create(:name => componentName, description: taskTitle, category: "Module")
-    comp.tasks.create(:title => "Design, test and implement component: #{componentName}" , :estimated_cost => totalCost)
+    tsk = comp.tasks.create(:title => "Design, test and implement component: #{componentName}" , :estimated_cost => totalCost, :priority => prio)
+
+    tsk.subtasks.create(:title => "Design test cases", :estimated_cost => testDesCost, :description =>  "Test cases designing for #{componentName}", :priority => prio)
+    tsk.subtasks.create(:title => "Implement automated unit tests", :estimated_cost => testImplCost, :description =>  "Test automation implementation for #{componentName}", :priority => prio)
+    tsk.subtasks.create(:title => "Implement component and pass test cases", :estimated_cost => implCost, :description => "Component implementation for #{componentName}", :priority => prio)
 
   end
 end
