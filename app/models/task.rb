@@ -29,4 +29,11 @@ class Task < ApplicationRecord
     parTsk
 
   end
+
+  after_initialize :default_values
+
+  private
+    def default_values
+      self.status ||= "New"
+    end
 end

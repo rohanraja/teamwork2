@@ -69,6 +69,7 @@
                 <th>Sub Tasks</th>
                 <th>Description</th>
                 <th>Cost</th>
+                <th>Status</th>
           </tr>
         </thead>
 
@@ -77,6 +78,7 @@
                 <td><%= link_to subtask.title, [subtask] %></td>
                 <td><%= subtask.description %></td>
                 <td><%= subtask.estimated_cost %></td>
+                <td><%= subtask.status %></td>
           <% end %>
         </tbody>
       </table>
