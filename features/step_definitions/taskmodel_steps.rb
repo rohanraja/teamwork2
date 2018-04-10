@@ -26,3 +26,6 @@ end
 When("I visit the show page for that task") do
   visit "/tasks/#{@task.id}"
 end
+When("I visit the edit page for that task") do
+  visit "/tasks/#{@task.id}/edit"
+end
