@@ -10,7 +10,7 @@ class Component < ApplicationRecord
   accepts_nested_attributes_for :tasks, 
                                 allow_destroy: true
 
-  after_save :autocreate_testsuite, :autocreate_tasks
+  # after_save :autocreate_testsuite, :autocreate_tasks
 
   def autocreate_testsuite
     if self.testsuites.empty?

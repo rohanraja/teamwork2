@@ -26,8 +26,10 @@ def importUSDTasks
   CSV.foreach(filename, :headers => true) do |row|
     taskTitle = row["Description"]
     componentName = row["Component"]
+    totalCost = row["Total Days"]
 
     comp = usdapp.components.create(:name => componentName, description: taskTitle, category: "Module")
+    comp.tasks.create(:title => "Design, test and implement component: #{componentName}" , :estimated_cost => totalCost)
 
   end
 end
