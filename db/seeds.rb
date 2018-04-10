@@ -17,28 +17,58 @@ email2 = 'roraja@microsoft.com'
 password = 'secretpass'
 User.new(:email => email2, :password => password, :password_confirmation => password).save!
 
-app = Application.create(name: "xLearn2-Backend")
-comps = app.components.create([
-  {name: "Job Manager", description: "Responsible for managing jobs", category: "class"}, 
-  {name: "Model Trainer", description: "Trains deep learning model", category: "module" }, 
-  {name: "Weights Manager"},
-  {name: "Components Loader"},
-  {name: "PyComponents Manager"}
-])
+require 'csv'
 
-app.components.first.functionalities.create(title: "It should manage jobs")
+def importUSDTasks
+  usdapp = Application.create(name: "USD Browser Redesign")
 
-task = app.components.first.tasks.create(title: "Write acceptance test cases", user_id: user1.id)
+  filename = "#{Rails.root}/db/seed/browsertasks.csv"
+  CSV.foreach(filename, :headers => true) do |row|
+    taskTitle = row["Description"]
+    componentName = row["Component"]
 
-clist = task.checklists.create(title: "Sample checklist")
+    comp = usdapp.components.create(:name => componentName, description: taskTitle, category: "Module")
 
-clistitem = clist.checklistitems.create(:title => "Should be tested like hell")
+  end
+end
 
-ts = app.components.first.testsuites.create(title: "Test Suite 1")
 
-tc = ts.testcases.create(title: "New test case")
+def importUSDBrowserApp
+  importUSDTasks
+end
 
-app2 = Application.create(name: "xLearn2-Ui")
-comps2 = app2.components.create([
-  {name: "NavBar", description: "Has links to most common pages", category: "class"} 
-])
+importUSDBrowserApp
+
+
+def xlearnData
+
+  app = Application.create(name: "xLearn2-Backend")
+  comps = app.components.create([
+    {name: "Job Manager", description: "Responsible for managing jobs", category: "class"}, 
+    {name: "Model Trainer", description: "Trains deep learning model", category: "module" }, 
+    {name: "Weights Manager"},
+    {name: "Components Loader"},
+    {name: "PyComponents Manager"}
+  ])
+
+  app.components.first.functionalities.create(title: "It should manage jobs")
+
+  task = app.components.first.tasks.create(title: "Write acceptance test cases", user_id: user1.id)
+
+  task.subtasks.create(:title => "Sample Sub Task 1")
+
+  clist = task.checklists.create(title: "Sample checklist")
+
+  clistitem = clist.checklistitems.create(:title => "Should be tested like hell")
+
+  ts = app.components.first.testsuites.create(title: "Test Suite 1")
+
+  tc = ts.testcases.create(title: "New test case")
+
+  app2 = Application.create(name: "xLearn2-Ui")
+  comps2 = app2.components.create([
+    {name: "NavBar", description: "Has links to most common pages", category: "class"} 
+  ])
+
+end
+

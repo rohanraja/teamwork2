@@ -5,6 +5,9 @@ class Task < ApplicationRecord
 
   after_save :autocreate_checklist
 
+  has_many :task_memberships
+  has_many :subtasks, :through => :task_memberships
+
   def autocreate_checklist
     if self.checklists.empty?
       self.checklists.create(:title => "Default checklist for Task having title: #{self.title}")
