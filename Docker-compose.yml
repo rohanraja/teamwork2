@@ -1,6 +1,6 @@
 app:
   build: .
-  command: /app/run.sh
+  command: /bin/bash run.sh
   volumes:
     - .:/app
   ports:
